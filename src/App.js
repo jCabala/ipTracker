@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from 'styled-components';
+import { Global } from './components/styles/Global.styled';
+import Banner from './components/Banner';
+import Map from './components/Map';
 
-function App() {
+const theme = {
+  colors: {
+    veryDarkGrey: 'hsl(0, 0%, 17%)',
+    darkGrey: 'hsl(0, 0%, 59%)',
+  },
+
+  media: {
+    mobile: '375px',
+    laptop: '1000px',
+  },
+
+  fontSizes: {
+    input: '18px',
+  },
+};
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Global />
+      <Banner />
+      <Map />
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
