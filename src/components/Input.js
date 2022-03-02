@@ -1,31 +1,11 @@
 import { useState } from 'react';
 import { StyledInput, InputForm, InputButton } from './styles/Input.styled';
-import axios from 'axios';
-import { DOMAIN_DATA } from '../api.config';
-import { useDataState } from '../DataContext';
 
-const filterData = data => ({
-  'IP Address': data.ip,
-  Timezone: data.location.timezone,
-  Location: `${data.location.country}, ${data.location.region}, ${data.location.city}`,
-  ISP: data.isp,
-  lat: data.location.lat,
-  lang: data.location.lng,
-});
+import { useDataState, fetchData, filterData } from '../DataContext';
 
 const Input = () => {
   const [inputVal, setInputVal] = useState('');
   const { setData } = useDataState();
-
-  const fetchData = async () => {
-    try {
-      const { data } = await axios.get(DOMAIN_DATA(inputVal));
-      console.log(data);
-      return data;
-    } catch (err) {
-      alert('Please add a valid IP address or domain name.');
-    }
-  };
 
   const handleSubmit = async e => {
     e.preventDefault();

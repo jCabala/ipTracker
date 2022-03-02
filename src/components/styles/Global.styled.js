@@ -12,6 +12,6 @@ export const Global = createGlobalStyle`
     }
 
     body{
-        overflow-y: hidden;
+        overflow-x: hidden;
     }
 `;

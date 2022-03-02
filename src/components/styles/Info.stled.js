@@ -44,13 +44,13 @@ export const InfoCard = styled.div`
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin-top: 20px;
     text-overflow: clip;
     word-break: break-word;
     @media (max-width: ${({ theme }) => theme.media.laptop}) {
       font-size: 1rem;
-      word-break: normal;
+      word-break: break-word;
     }
     padding-right: 5px;
   }
